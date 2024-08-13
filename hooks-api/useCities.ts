@@ -13,17 +13,21 @@ export default (): UseCities => {
     const url = new URL(API_URL);
     url.searchParams.append("page", page + "");
     url.searchParams.append("limit", "10");
-    const postsRequest = await fetch(url);
-    if (!postsRequest.ok) {
-      setError(false);
-      return;
+    try {
+      const postsRequest = await fetch(url);
+      if (!postsRequest.ok) {
+        setError(true);
+        return;
+      }
+      const postsData = await postsRequest.json();
+      if (!postsData.length) {
+        setEmptyData(true);
+        return;
+      }
+      setCities((currentData) => [...currentData, ...postsData]);
+    } catch {
+      setError(true);
     }
-    const postsData = await postsRequest.json();
-    if (!postsData.length) {
-      setEmptyData(true);
-      return;
-    }
-    setCities((currentData) => [...currentData, ...postsData]);
   }, [page, emptyData]);
 
   const nextPage = useCallback(() => {
