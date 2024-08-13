@@ -23,7 +23,7 @@ In the output, you'll find options to open the app in a
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## My task approach
+## 1. My task approach
 
 I wanted to approach this as efficient and maintainable as I could in about 4 hours using the less amount of external libraries, so here is a brief breakdown of what I thought to start building it:
 
@@ -59,11 +59,11 @@ Used JavaScript's fetch function because since it was only one request being cal
 
 Managed states implementing React's own Hooks to improve performance around the app
 
-## Trade-offs during development
+## 2. Trade-offs during development
 
 In terms of functionality didn't make too much changes during development. However, I was trying to implement a gradient dark background for the images and since didn't see it worth enough to include a external library for it or making a custom component, just left it as a darker solid background for the cards information
 
-## Optimizations and improvements
+## 3. Optimizations and improvements
 
 ### Cache management
 
@@ -84,3 +84,7 @@ Generalize styles and colors in a better way accross the project, allowing to ha
 ### Translation
 
 I would implement i18next to manage multiple languages in the app
+
+### Gitflow
+
+Implement a better versioning work-flow for team collaboration
